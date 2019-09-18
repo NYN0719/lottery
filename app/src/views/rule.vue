@@ -5,7 +5,7 @@
             <p>每期开出3个数字作为开奖号码，每个数字取值范围1-6（相当于摇3个骰子）。</p>
             <h2>奖励说明</h2>
             <table style="height:200px;border-left: 0.01rem solid  #ddd;">
-                <tr v-for="(i,index) in arr" >
+                <tr v-for="(i,index) in arr" :key="index">
                     <td>{{i.a}}</td>
                     <td>{{i.b}}</td>
                     <td>{{i.c}}</td>
