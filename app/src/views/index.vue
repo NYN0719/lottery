@@ -23,7 +23,7 @@
         <div class="bottom" style="min-height:100vh">
           
                 <div v-for="(i,index) in arr" class="aaa" :key="index">
-                        <router-link to>
+                        <router-link to="/lotteryHall">
                     <div class="item">
                         <img :src="i.type?img1:img2" alt="">
                         <p class="tlt">{{i.title}}</p>
