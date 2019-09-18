@@ -6,14 +6,24 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>app</title>
-    <script> 
-      window.onload = function() {   
-           document.documentElement.style.fontSize=document.documentElement.clientWidth/640*100+'px'; 
-                     }
-      window.onresize = function() {            
-           document.documentElement.style.fontSize=document.documentElement.clientWidth/640*100+'px';       
-                 }
-      </script>
+	<script type="text/javascript" src="http://at.alicdn.com/t/font_1174913_kmidgx5rvl.js"></script>
+		<script>
+			window.onload = function (){
+				document.documentElement.style.fontSize = document.documentElement.clientWidth / 640 * 100 + 'px';
+		        window.onresize = function () {
+		          document.documentElement.style.fontSize = document.documentElement.clientWidth / 640 * 100 + 'px';
+		        }
+			}
+		</script>
+		
+	  <style type="text/css">
+	  	.icon {
+	  	       width: 1em; height: 1em;
+	  	       vertical-align: -0.15em;
+	  	       fill: currentcolor;
+	  	       overflow: hidden;
+	  	  }
+	  </style>
   </head>
   <body>
     <noscript>

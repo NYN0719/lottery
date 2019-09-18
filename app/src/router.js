@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import Records from './views/buyrecord.vue'
+import rule from './views/rule.vue'
+import index from './views/index.vue'
 
 // 积分兑换
 import jifen from './views/jifen.vue'
@@ -8,11 +11,12 @@ import jifen from './views/jifen.vue'
 Vue.use(Router)
 
 export default new Router({
+  mode:'history',
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'index',
+      component: index
     },
     {
       // 积分兑换
@@ -28,5 +32,14 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     }
+      path: '/rule',
+      name: 'rule',
+      component: rule,
+    },
+    {
+      path:'/Records',
+      name: 'Records',
+      component: Records
+    },
   ]
 })
