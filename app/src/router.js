@@ -1,24 +1,32 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+<<<<<<< HEAD
 import Home from './views/Home.vue'
 import Records from './views/buyrecord.vue'
+=======
+import rule from './views/rule.vue'
+import index from './views/index.vue'
+>>>>>>> ca53aff872ff014ed95e088e128b313e72d4d5cb
 
 Vue.use(Router)
 
 export default new Router({
+  mode:'history',
   routes: [
     {
       path: '/',
+<<<<<<< HEAD
       name: 'Records',
       component: Records
+=======
+      name: 'index',
+      component: index
+>>>>>>> ca53aff872ff014ed95e088e128b313e72d4d5cb
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
+      path: '/rule',
+      name: 'rule',
+      component: rule
+    },
   ]
 })
