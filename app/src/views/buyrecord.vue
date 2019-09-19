@@ -165,6 +165,7 @@
 	.big_bottom{
 		width: 100%;
 		height: 1rem;
+		font-size: 0.20rem;
 		background: darkcyan;
 		position: fixed;
 		left: 0;

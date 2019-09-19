@@ -92,6 +92,7 @@ export default {
         width: 100%;
         height: 4.3rem;
         display: flex;
+        transition: 0.35s;
         /* display: none; */
         /* background: pink; */
     }
@@ -132,6 +133,7 @@ export default {
     .content1{
         width: 100%;
         height: 10rem;
+        transition: .35s;
         /* background: pink; */
     }
     .yan{

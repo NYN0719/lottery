@@ -14,7 +14,7 @@
              <ul class="mnj">
                 <li>0模拟金</li>
                 <li>0积分
-                    <router-link to>
+                    <router-link to='/jifen'>
                             兑换
                     </router-link>
                 </li>
