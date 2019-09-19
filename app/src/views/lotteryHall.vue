@@ -227,7 +227,7 @@ export default {
       } else {
         evt.path[1].className = "";
       }
-    }
+    }  
   }
 };
 </script>
