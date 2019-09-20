@@ -2,17 +2,17 @@
   <div class="lotteryHall">
     <header>
       <div>
-        <p>上期开奖</p>
+        <p style="margin-top:0.2rem;">上期开奖</p>
         <p>136</p>
       </div>
       <div>
-        <p>距 01 期截止</p>
+        <p style="margin-top:0.2rem;">距 01 期截止</p>
         <p>10:00</p>
       </div>
     </header>
     <div class="content_hk">
       <ul class="change_hk">
-        <li @click="tabs = true">选号</li>
+        <li @click="tabs = true" >选号</li>
         <li @click="tabs = false">走势图</li>
       </ul>
 
@@ -22,15 +22,19 @@
             <div>
               <span @click="palyStyle=!palyStyle">
                 玩法：
-                <i>{{play_data[play_index]}}</i> ﹀
+                <i>{{play_data[play_index]}}</i> 
               </span>
             </div>
             <ul class="playListType" v-show="palyStyle">
               <li v-for="(i,idx) in play_data" :key="idx" @click="check_list(i,idx)">{{i}}</li>
             </ul>
-            <div>?</div>
+            <div>
+              <router-link to="/rule">
+                  ?
+              </router-link>
+            </div>
           </div>
-          <div class="checkType_hk">
+          <div class="checkType_hk" style="margin-left:0.3rem;line-height:0.6rem;color:#48B892;">
             <span>{{play_data[play_index]}}</span>
               猜开奖号码相加的和
           </div>
@@ -116,6 +120,8 @@
           </table>
         </div>
         <div class="goListTainer">
+
+          
           <table>
             <thead>
               <tr v-for="i in 30" :key="i" :style="{backgroundColor:(i%2)!=0?'green':''}">
@@ -236,6 +242,7 @@ export default {
 .lotteryHall{
   height: 100%;
   width: 100%;
+  font-size: 0.22rem;
 }
 header {
   width: 100%;
@@ -251,7 +258,8 @@ header > div {
   border-right: 0.01rem solid #000;
 }
 .content_hk {
-  height: 100vh;
+  /* height: 100vh; */
+  height: 10rem;
   background-color: #077552;
 }
 .content_hk .change_hk {
@@ -262,7 +270,10 @@ header > div {
 .content_hk .change_hk > li {
   flex: 1;
   text-align: center;
+  height: 0.6rem;
   color: #ffab00;
+  line-height: 0.6rem;
+  font-size: 0.20rem;
 }
 .tainer_hk {
   min-height: 4rem;
