@@ -48,12 +48,7 @@ export default new Router({
       path: '/lotteryHall',
       name: 'lotteryHall',
       component: lotteryHall
-<<<<<<< HEAD
-    },
-    {
-=======
     },{
->>>>>>> 688da92ff3b715320db884c428967fe5609ec5ca
       path:'/tankuang',
       name: 'tankuang',
       component: tankuang

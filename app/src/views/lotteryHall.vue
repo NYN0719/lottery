@@ -6,13 +6,10 @@
         <p>136</p>
       </div>
       <div>
-<<<<<<< HEAD
         <p style="margin-top:0.2rem;">距 01 期截止</p>
         <p>10:00</p>
-=======
         <p>距 01 期截止</p>
         <p>{{stopTimeM}}:{{stopTimeS}}</p>
->>>>>>> 688da92ff3b715320db884c428967fe5609ec5ca
       </div>
     </header>
     <div class="content_hk">
@@ -287,12 +284,7 @@ export default {
 .lotteryHall {
   height: 100%;
   width: 100%;
-<<<<<<< HEAD
   font-size: 0.22rem;
-=======
-  font-size: 0.2rem;
-  background-color: #077552;
->>>>>>> 688da92ff3b715320db884c428967fe5609ec5ca
 }
 header {
   width: 100%;
@@ -308,12 +300,8 @@ header > div {
   border-right: 0.01rem solid #000;
 }
 .content_hk {
-<<<<<<< HEAD
   /* height: 100vh; */
   height: 10rem;
-=======
-  height: 90vh;
->>>>>>> 688da92ff3b715320db884c428967fe5609ec5ca
   background-color: #077552;
 }
 .content_hk .change_hk {
@@ -326,12 +314,8 @@ header > div {
   text-align: center;
   height: 0.6rem;
   color: #ffab00;
-<<<<<<< HEAD
   line-height: 0.6rem;
-  font-size: 0.20rem;
-=======
   font-size: 0.2rem;
->>>>>>> 688da92ff3b715320db884c428967fe5609ec5ca
 }
 .tainer_hk {
   min-height: 4rem;
