@@ -6,8 +6,13 @@
         <p>136</p>
       </div>
       <div>
+<<<<<<< HEAD
         <p style="margin-top:0.2rem;">距 01 期截止</p>
         <p>10:00</p>
+=======
+        <p>距 01 期截止</p>
+        <p>{{stopTimeM}}:{{stopTimeS}}</p>
+>>>>>>> 688da92ff3b715320db884c428967fe5609ec5ca
       </div>
     </header>
     <div class="content_hk">
@@ -36,7 +41,7 @@
           </div>
           <div class="checkType_hk" style="margin-left:0.3rem;line-height:0.6rem;color:#48B892;">
             <span>{{play_data[play_index]}}</span>
-              猜开奖号码相加的和
+            猜开奖号码相加的和
           </div>
           <div class="playList_hk">
             <!-- 和值 -->
@@ -44,7 +49,7 @@
               v-if="play_index==0"
               v-for="(and,idx) in andValue"
               :key="idx"
-              @click.stop="heightLinght($event)"
+              @click.prevent="heightLinght(and,(idx+1),$event)"
               :class="index_action == idx?'active_bor_bkd_clo':''"
             >
               <div>{{and.num}}</div>
@@ -55,7 +60,7 @@
               v-if="play_index==1"
               v-for="(and,idx) in threeAlike"
               :key="idx"
-              @click.stop="heightLinght($event)"
+              @click="heightLinght(and,(idx+1),$event)"
               :class="index_action == idx?'active_bor_bkd_clo':''"
             >
               <div>{{and.num}}</div>
@@ -66,7 +71,7 @@
               v-if="play_index==2"
               v-for="(and,idx) in twoAlike[0].data"
               :key="idx"
-              @click.stop="heightLinght($event)"
+              @click="heightLinght(and,(idx+1),$event)"
               :class="index_action == idx?'active_bor_bkd_clo':''"
             >
               <div>{{and.num}}</div>
@@ -77,7 +82,7 @@
               v-if="play_index==3"
               v-for="(and,idx) in twoAlike[1].data"
               :key="idx"
-              @click.stop="heightLinght($event)"
+              @click="heightLinght(and,(idx+1),$event)"
               :class="index_action == idx?'active_bor_bkd_clo':''"
             >
               <div>{{and.num}}</div>
@@ -88,14 +93,12 @@
               v-if="play_index==4"
               v-for="(and,idx) in twoAlike[2].data"
               :key="idx"
-              @click.stop="heightLinght($event)"
+              @click="heightLinght(and,(idx+1),$event)"
               :class="index_action == idx?'active_bor_bkd_clo':''"
             >
               <div>{{and.num}}</div>
               <div>奖励{{and.award}}积分</div>
             </div>
-
-
           </div>
         </div>
       </div>
@@ -139,13 +142,13 @@
             </thead>
           </table>
         </div>
-
-
-        
       </div>
     </div>
     <div class="bottom_hk">
-      <div>共 0 注 <span>0 模拟金</span></div>
+      <div>
+        共 {{click_count}} 注
+        <span>0 模拟金</span>
+      </div>
       <div>确定</div>
     </div>
   </div>
@@ -155,10 +158,27 @@
 export default {
   data() {
     return {
-      play_index:0,
-      play_data:['和值','三同号','二同号','三不同','二不同'],
-      play_rules:['猜开奖号码相加的和',['三同号','三同号通选','猜中豹子号(三个相同号)'],['二同号','选择同号和不同号的组合，奖励80积分','猜开奖中的2个指定的相同号码，奖励15积分'],['三不同号','三连号','猜开奖的三个不同号码，奖励40积分','123,234,345,456，任一开出即中10积分'],['二不同号','猜开奖中的2个指定的不同号码，奖励8积分']],
-      tabs:true,
+      click_count: 0,
+      click_total: 0,
+      play_index: 0,
+      play_data: ["和值", "三同号", "二同号", "三不同", "二不同"],
+      play_rules: [
+        "猜开奖号码相加的和",
+        ["三同号", "三同号通选", "猜中豹子号(三个相同号)"],
+        [
+          "二同号",
+          "选择同号和不同号的组合，奖励80积分",
+          "猜开奖中的2个指定的相同号码，奖励15积分"
+        ],
+        [
+          "三不同号",
+          "三连号",
+          "猜开奖的三个不同号码，奖励40积分",
+          "123,234,345,456，任一开出即中10积分"
+        ],
+        ["二不同号", "猜开奖中的2个指定的不同号码，奖励8积分"]
+      ],
+      tabs: true,
       index_action: null,
       andValue: [
         { num: "4", award: "80" },
@@ -219,30 +239,60 @@ export default {
           ]
         }
       ],
-      palyStyle: false
+      palyStyle: false,
+      stopTimeS: 0,
+      stopTimeM: 10,
+      timer:null
     };
   },
+  created() {
+    this.add()
+    // setInterval(() => {
+    //   this.stopTimeS == 0 ? this.stopTimeS = 59 : this.stopTimeS --
+    // }, 1000);
+  },
   methods: {
-    check_list(i,idx){
-      this.play_index = idx
-      this.palyStyle=false
+    add() {
+      var _this = this;
+      var timer = window.setInterval(function() {
+        if (_this.stopTimeS === 0 && _this.stopTimeM !== 0) {
+          _this.stopTimeS = 59;
+          _this.stopTimeM -= 1;
+        } else if (_this.stopTimeM === 0 && _this.stopTimeS === 0) {
+          _this.stopTimeS = 0;
+          window.clearInterval(timer);
+        } else {
+          _this.stopTimeS -= 1;
+        }
+      }, 1000);
     },
-    heightLinght(evt) {
+    check_list(i, idx) {
+      this.play_index = idx;
+      this.palyStyle = false;
+    },
+    heightLinght(item, idx, evt) {
+      console.log(evt)
+      this.click_count++;
       if (evt.path[1].className == "") {
         evt.path[1].className = "active_bor_bkd_clo";
       } else {
         evt.path[1].className = "";
       }
-    }  
+    }
   }
 };
 </script>
 
 <style scoped>
-.lotteryHall{
+.lotteryHall {
   height: 100%;
   width: 100%;
+<<<<<<< HEAD
   font-size: 0.22rem;
+=======
+  font-size: 0.2rem;
+  background-color: #077552;
+>>>>>>> 688da92ff3b715320db884c428967fe5609ec5ca
 }
 header {
   width: 100%;
@@ -258,8 +308,12 @@ header > div {
   border-right: 0.01rem solid #000;
 }
 .content_hk {
+<<<<<<< HEAD
   /* height: 100vh; */
   height: 10rem;
+=======
+  height: 90vh;
+>>>>>>> 688da92ff3b715320db884c428967fe5609ec5ca
   background-color: #077552;
 }
 .content_hk .change_hk {
@@ -272,8 +326,12 @@ header > div {
   text-align: center;
   height: 0.6rem;
   color: #ffab00;
+<<<<<<< HEAD
   line-height: 0.6rem;
   font-size: 0.20rem;
+=======
+  font-size: 0.2rem;
+>>>>>>> 688da92ff3b715320db884c428967fe5609ec5ca
 }
 .tainer_hk {
   min-height: 4rem;
@@ -325,7 +383,7 @@ header > div {
 }
 .check_hk .playList_hk > div {
   width: 1.6rem;
-  height: 0.6rem;
+  line-height: 0.3rem;
   text-align: center;
   font-size: 0.16rem;
   color: white;
@@ -339,23 +397,27 @@ header > div {
   color: #cc9830 !important;
   background-color: rgba(#cc9830, #cc9830, #cc9830, 0.3) !important;
 }
+.goList{
+  height: 6rem;
+  overflow-y: scroll;
+}
 .goList table {
   text-align: center;
   width: 100%;
-  border-collapse:collapse;
+  border-collapse: collapse;
   color: #48b892;
 }
-.goList table tr>th{
-  border-bottom:0.01rem solid #00422c;
-  border-right:0.01rem solid #00422c;
+.goList table tr > th {
+  border-bottom: 0.01rem solid #00422c;
+  border-right: 0.01rem solid #00422c;
   background-color: #0b5f45;
   width: 10%;
   font-size: 0.16rem;
 }
-.goList .goListTainer table tr:nth-child(odd) th{
+.goList .goListTainer table tr:nth-child(odd) th {
   background-color: #08533c;
 }
-.bottom_hk{
+.bottom_hk {
   width: 100%;
   height: 0.8rem;
   position: fixed;
@@ -376,7 +438,7 @@ header > div {
   flex: 8;
   background-color: #212121 !important;
 }
-.bottom_hk > div:first-of-type span{
-  color: #ffc107!important;
+.bottom_hk > div:first-of-type span {
+  color: #ffc107 !important;
 }
 </style>
