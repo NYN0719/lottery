@@ -4,6 +4,7 @@ import Records from './views/buyrecord.vue'
 import rule from './views/rule.vue'
 import index from './views/index.vue'
 import tankuang from '@/components/tangkuang.vue'
+import login from '@/views/login.vue'
 
 // 积分兑换
 import jifen from './views/jifen.vue'
@@ -38,7 +39,12 @@ export default new Router({
       path:'/tankuang',
       name: 'tankuang',
       component: tankuang
-    }
+    },
+	{
+	  path:'/login',
+	  name: 'login',
+	  component: login
+	}
   ]
 })
  
