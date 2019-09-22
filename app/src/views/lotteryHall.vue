@@ -7,17 +7,17 @@
       </div>
       <div>
         <p style="margin-top:0.2rem;">距 01 期截止</p>
-        <p>10:00</p>
-        <p>距 01 期截止</p>
+      
         <p>{{stopTimeM}}:{{stopTimeS}}</p>
       </div>
     </header>
     <div class="content_hk">
       <ul class="change_hk">
-        <li @click="tabs = true" >选号</li>
-        <li @click="tabs = false">走势图</li>
+        <li @click="tabs = true" :class="tabs==true?'abc':''">选号</li>
+        <li @click="tabs = false" :class="tabs==true?'':'abc'">走势图</li>
       </ul>
-
+      
+      <!-- 选号 -->
       <div class="tainer_hk" v-show="tabs">
         <div class="check_hk">
           <div class="rules_hk">
@@ -103,10 +103,10 @@
       <div class="goList" v-show="!tabs">
         <div class="goListHeader">
           <table>
-            <thead>
+            <thead >
               <tr>
                 <th>期次</th>
-                <th>开奖号</th>
+                <th>开奖</th>
                 <th>大小</th>
                 <th>单双</th>
                 <th>1</th>
@@ -281,6 +281,9 @@ export default {
 </script>
 
 <style scoped>
+  .abc{
+    border-bottom:#ffab00 solid 2px;
+  }
 .lotteryHall {
   height: 100%;
   width: 100%;
@@ -315,12 +318,12 @@ header > div {
   height: 0.6rem;
   color: #ffab00;
   line-height: 0.6rem;
-  font-size: 0.2rem;
+  font-size: 0.3rem;
 }
 .tainer_hk {
   min-height: 4rem;
   padding-top: 0.1rem;
-  height: 0.4rem;
+  /* height: 0.4rem; */
 }
 .tainer_hk .playListType {
   width: 1.25rem;
@@ -343,12 +346,12 @@ header > div {
   margin-left: 0.3rem;
 }
 .rules_hk > div:first-of-type span {
-  padding: 0.08rem 0.14rem;
+  padding: 0.12rem 0.16rem;
   text-align: center;
   display: inline-block;
   background-color: rgb(22, 153, 103);
   color: white;
-  font-size: 0.16rem;
+  font-size: 0.22rem;
 }
 .rules_hk > div:last-of-type {
   flex: 1;
@@ -366,14 +369,20 @@ header > div {
   position: relative;
 }
 .check_hk .playList_hk > div {
-  width: 1.6rem;
-  line-height: 0.3rem;
+  width: 1.7rem;
+  line-height: 0.4rem;
   text-align: center;
-  font-size: 0.16rem;
+  font-size: 0.22rem;
   color: white;
   background-color: #08533c;
   border: 0.02rem solid #229474;
-  margin: 0.05rem;
+  margin: 0.08rem;
+}
+.check_hk .playList_hk > div:last-child{
+  margin-left: 0.4rem;
+}
+.check_hk .playList_hk > div:nth-last-child(2){
+  margin-left: 0.9rem;
 }
 /*  边框 背景色 颜色*/
 .active_bor_bkd_clo {
@@ -382,8 +391,9 @@ header > div {
   background-color: rgba(#cc9830, #cc9830, #cc9830, 0.3) !important;
 }
 .goList{
-  height: 6rem;
-  overflow-y: scroll;
+  height: 9rem;
+  overflow-y: scroll;  
+  /* overflow: hidden; */
 }
 .goList table {
   text-align: center;
@@ -396,7 +406,7 @@ header > div {
   border-right: 0.01rem solid #00422c;
   background-color: #0b5f45;
   width: 10%;
-  font-size: 0.16rem;
+  font-size: 0.23rem;
 }
 .goList .goListTainer table tr:nth-child(odd) th {
   background-color: #08533c;
@@ -416,7 +426,7 @@ header > div {
   line-height: 0.8rem;
   background-color: #b71c1c !important;
   color: white;
-  font-size: 0.2rem;
+  font-size: 0.3rem;
 }
 .bottom_hk > div:first-of-type {
   flex: 8;
