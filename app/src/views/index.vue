@@ -2,26 +2,18 @@
     <div style="min-height:100vh; background: #077552;">
         <div class="top">
             <span  class="x">
-                <router-link to="/login">
-                        登录
+                <router-link to>
+                        登录|注册
                 </router-link>
-				|<router-link to="/login">
-				        注册
-				</router-link>
             </span>
              <h4><span>{{time}}</span>好！朋友 </h4>
-<<<<<<< HEAD
-             <div class="item-img">
-                 <img :src="userimg" alt="" title="abc">
-=======
              <div class="item_img">
-                 <img src="">
->>>>>>> a9867528b8cfacbdd93e6cc7e2e7c6dc825a87a6
+                 <img src="url">
              </div>
              <div class="user">用户名</div>
              <ul class="mnj">
                 <li>0模拟金</li>
-                <li>0积分
+                <li>0积分 
                     <router-link to='/jifen'>
                             兑换
                     </router-link>
@@ -47,7 +39,6 @@
     export default{
         data(){
             return{
-				userimg:'',
                 tiem:'',
                 hour:0,
                 img1:'http://haoxg.xyz/lottery/img/happyk3.ea0489f1.png',
@@ -112,7 +103,6 @@
             }
         },
         created(){
-			this.userimg = localStorage.imglink
             var tim = new Date()
 			this.hour = tim.getHours()
 			if (this.hour > 6 && this.hour <=10) {
@@ -222,9 +212,5 @@
         height: 100%;
         border-radius:50%; 
        
-    }
-	.item-img img{
-	    width: 0.6rem;
-	    border-radius:50%; 
-	}
+}
 </style>

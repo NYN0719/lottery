@@ -1,29 +1,8 @@
 <template>
 	<div id="loginbox">
 		<div class="login_bigbox">
-			<div style="min-height: 460px">
-				<div v-show="!type">
-					<h2>登录</h2>
-					<!-- <div class="login_top">
-						<div class="zh_box">
-							<div>账号：</div>
-							<div>
-								<input type="text" v-model="loin.zh">
-							</div>
-						</div>
-						<div class="zh_box">
-							<div>密码：</div>
-							<div>
-								<input type="text" v-model="loin.mm">
-							</div>
-						</div>
-						<div>
-							<button class="surebtn" @click="loin_ajax">确定</button>
-						</div>
-					</div> -->
-				</div>
+			<div style="min-height: 100vh;background: green;">
 				<div v-show="type">
-					<h2>注册</h2> 
 					<div class="login_top">
 						<div class="touxiangimg">
 							<input class="file_in" type="file" @change="files($event)">
@@ -52,10 +31,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="btn">
+			<!-- <div class="btn">
 				<div style="background: yellowgreen" @click="type=false">登录</div>
 				<div style="background: orange" @click="type=true">注册</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	
@@ -144,9 +123,6 @@
 		height:0.6rem;
 		padding: 0 1.4rem;
 	}
-	.login_top{
-		margin-top: 2rem;
-	}
 	.zh_box div{
 		float: left;
 	}
@@ -163,7 +139,6 @@
 		border-radius: 50%;
 		background:pink;
 		margin:0 auto;
-		overflow: hidden;
 		position: relative;
 		margin-bottom: 0.2rem;
 	
@@ -176,8 +151,12 @@
 		opacity: 0;
 		position: absolute;
 		left: 0;
-		top:0.3rem;
+		top:0;
+		border-radius: 50%;
+		width: 1rem;
+		height: 1rem;
 		z-index: 2;
+		font-size: 0;
 	}
 	.sure_box{
 		

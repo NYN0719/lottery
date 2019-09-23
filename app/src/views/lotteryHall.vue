@@ -303,9 +303,8 @@ header > div {
   border-right: 0.01rem solid #000;
 }
 .content_hk {
-  /* height: 100vh; */
-  height: 10rem;
   background-color: #077552;
+  height: 10.5rem;
 }
 .content_hk .change_hk {
   line-height: 0.3rem;
@@ -406,6 +405,7 @@ header > div {
   border-right: 0.01rem solid #00422c;
   background-color: #0b5f45;
   width: 10%;
+  /* height: 0.8rem; */
   font-size: 0.23rem;
 }
 .goList .goListTainer table tr:nth-child(odd) th {

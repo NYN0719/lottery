@@ -1,13 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
 import lotteryHall from './views/lotteryHall.vue'
 import Records from './views/buyrecord.vue'
 import rule from './views/rule.vue'
 import index from './views/index.vue'
 import tankuang from '@/components/tangkuang.vue'
 import login from '@/views/login.vue'
-
 // 积分兑换
 import jifen from './views/jifen.vue'
 

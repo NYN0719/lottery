@@ -122,8 +122,8 @@ export default {
         color: rgb(2, 47, 2);
     }
     .ka{
-        width: 1.94rem;
-        height: 1.2rem;
+        width: 1.89rem;
+        height: 1.6rem;
         padding-top:0.5rem;
     }
     div.yidong{
@@ -138,20 +138,19 @@ export default {
     }
     .yan{
         width: 50%;
-        height: 5rem;
+        height: 4rem;
         float: left;
         text-align: center;
         /* background: yellow; */
     }
     .yan div{
         width: 100%;
-        height: 3rem;
+        height: 2rem;
         text-align: center;
     }
     .yan div img{
         width: 2rem;
         height: 2rem;
-        margin-top: 0.55rem;
     }
     .yan p{
          font-size: 0.22rem;
