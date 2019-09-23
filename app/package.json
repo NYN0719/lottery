@@ -8,18 +8,20 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-<<<<<<< HEAD
     "animate.css": "^3.7.2",
     "axios": "^0.19.0",
 <<<<<<< HEAD
 =======
     "cheerio": "^1.0.0-rc.3",
+<<<<<<< HEAD
 =======
     "axios": "^0.19.0",
     "cheerio": "^1.0.0-rc.3",
     "animate.css": "^3.7.2",
 >>>>>>> 688da92ff3b715320db884c428967fe5609ec5ca
 >>>>>>> 785338f23d66cbf19cb8c924426ce98cbe9d48c7
+=======
+>>>>>>> a9867528b8cfacbdd93e6cc7e2e7c6dc825a87a6
     "core-js": "^2.6.5",
     "element-ui": "^2.12.0",
     "lib-flexible": "^0.3.2",

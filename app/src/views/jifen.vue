@@ -59,7 +59,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .jifen{
         width: 100%;
         height: auto;

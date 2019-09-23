@@ -10,8 +10,13 @@
 				</router-link>
             </span>
              <h4><span>{{time}}</span>好！朋友 </h4>
+<<<<<<< HEAD
              <div class="item-img">
                  <img :src="userimg" alt="" title="abc">
+=======
+             <div class="item_img">
+                 <img src="">
+>>>>>>> a9867528b8cfacbdd93e6cc7e2e7c6dc825a87a6
              </div>
              <div class="user">用户名</div>
              <ul class="mnj">
@@ -204,13 +209,19 @@
         color: #f5f5f5!important;
         padding: 0.08rem 0;
     }
-    .item-img{
+    .item_img{
         width: 0.6rem;
         /* padding: 0.1rem 0; */
         height: 0.6rem;
        margin: 0 auto;
         background: red;
+        font-size: 0;
+    }
+    .item_img img{
+        width: 100%;
+        height: 100%;
         border-radius:50%; 
+       
     }
 	.item-img img{
 	    width: 0.6rem;
