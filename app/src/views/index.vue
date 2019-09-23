@@ -28,6 +28,8 @@
                         <img :src="i.type?img1:img2" alt="">
                         <p class="tlt">{{i.title}}</p>
                     </div>
+                    <md-button class="ani md-icon-button md-accent">
+                    </md-button>
                 </router-link>
                 </div>
            
