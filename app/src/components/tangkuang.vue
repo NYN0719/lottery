@@ -1,5 +1,8 @@
 <template>
-  <el-button type="text" @click="open">确定</el-button>
+  <el-button type="text" @click="open">
+    <slot></slot>
+  </el-button>
+
 </template>
 
 <script>
@@ -8,9 +11,9 @@
       open() {
         const h = this.$createElement;
         this.$msgbox({
-          title: '消息',
+          title: '',
           message: h('p', null, [
-            h('span', null, '投注 '),
+            h('span', null, '至少选择一注选号 '),
           ]),
           showCancelButton: true,
           confirmButtonText: '确定',
@@ -38,3 +41,9 @@
     }
   }
 </script>
+
+<style>
+  .el-message-box{
+    width: 6rem;
+  }
+</style>

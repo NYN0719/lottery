@@ -1,25 +1,34 @@
 <template>
 	<div id="loginbox">
 		<div class="login_bigbox">
-			<div style="min-height: 100vh;background: green;">
+			<div style="height: 100%;" v-show="!type">
+				<div>
+					<div class="zh_box">
+						<input type="text" v-model="loup.zh" placeholder="请输入账号">
+					</div>
+					<div class="zh_box">
+						<input type="text" v-model="loup.mm" placeholder="请输入密码">
+					</div>
+					<div class="sure_box">
+						<!-- <router-link to="/"> -->
+							<button class="surebtn" @click="loup_ajax">确定</button>
+						<!-- </router-link> -->
+					</div>
+				</div>
+			</div>
+			<div>
 				<div v-show="type">
-					<div class="login_top">
+					<div>
 						<div class="touxiangimg">
 							<input class="file_in" type="file" @change="files($event)">
 							<img class="touxiangimg" v-if="url" :src="url">
 						</div>
 						<div class="zc_box">
 							<div class="zh_box">	
-								<div>账号：</div>
-								<div>
-									<input type="text" v-model="loup.zh">
-								</div>
+								<input type="text" v-model="loup.zh" placeholder="请输入账号">
 							</div>
 							<div class="zh_box">
-								<div>密码：</div>
-								<div>
-									<input type="text" v-model="loup.mm">
-								</div>
+								<input type="text" v-model="loup.mm" placeholder="请输入密码">
 							</div>
 						</div>
 						<!-- {statatype == yes?name:'index':name:'login'} -->
@@ -31,10 +40,6 @@
 					</div>
 				</div>
 			</div>
-			<!-- <div class="btn">
-				<div style="background: yellowgreen" @click="type=false">登录</div>
-				<div style="background: orange" @click="type=true">注册</div>
-			</div> -->
 		</div>
 	</div>
 	
@@ -72,6 +77,7 @@
 					this.loup.img_url = data.data
 					this.url = 'http://localhost:8999/images/'+data.data
 					localStorage.imglink = this.url
+					
 				})
 			},
 			loup_ajax(){
@@ -80,8 +86,8 @@
 					  console.log(res.data)
 					  this.statatype = res.data.type
 					  if(this.statatype == 'yes'){
-						  console.log(12)
 						  location.href = 'http://localhost:8080/'
+						  alert('登录成功')
 					  }
 					  // alert(res.data.data)
 				  })
@@ -98,46 +104,74 @@
 
 <style scoped>
 	a{text-decoration: none;color: black}
+	input,button{outline: none;}
+	 #loginbox{
+	    position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		background-color:#00422c;
+	 }
 	.login_bigbox{
 		font-size: 0.24rem;
+		margin-top: 1.5rem;
+	}
+	.inupbtn{
+		width: 100%;
+		height: 0.65rem;
 	}
 	.btn{
-		width: 100%;
-		height: 1rem;
+		width: 90%;
+		height: 0.65rem;
 		line-height: 1rem;
-		position: absolute;
-		left: 0;
-		bottom: 0;
+		margin:0 auto;	
 	}
 	.btn div{
 		float: left;
 		width: 50%;
+		height: 0.65rem;
+		line-height: 0.65rem;
 		text-align: center;
+	}
+	.loginbtn{
+		background: #147114;
+		border-radius: 0.5rem 0 0 0.5rem;
+	}
+	.logupbtn{
+		background: #147114;
+		border-radius: 0 0.5rem 0.5rem 0;
 	}
 	.zc_box{
 		width: 100%;
 		margin-top: 0.6rem;
 	}
 	.zh_box{
-		width: 3.6rem;
-		height:0.6rem;
-		padding: 0 1.4rem;
+		width: 100%;
+		height:0.8rem;
+		margin:0 auto;
+		margin-bottom: 0.2rem;
 	}
-	.zh_box div{
-		float: left;
+	.zh_box input{
+		width: 80%;
+		height:0.8rem;
+		font-size: 0.32rem;
+		color: #757575;
+		margin: 0 auto;
+		display: block;
+		background: #00422c;
+		outline: none;
+		border: none;
+		border-bottom: 0.03rem solid #757575;
 	}
 	.pwd_box{
 		height:0.2rem;
 		margin:0.2rem 0;
 	}
-	.pwd_box div{
-		float: left;
-	}
 	.touxiangimg{
 		width: 1rem;
 		height: 1rem;
 		border-radius: 50%;
-		background:pink;
+		background:#CCCCCC;
 		margin:0 auto;
 		position: relative;
 		margin-bottom: 0.2rem;
@@ -159,15 +193,20 @@
 		font-size: 0;
 	}
 	.sure_box{
-		
+		width: 100%;
+		height: 0.86rem;
+		margin-top: 0.45rem;
+		margin-bottom: 1.8rem;
 	}
-	.surebtn{
-		width: 30%;
-		height: 0.5rem;
-		background:green;
-		position: absolute;
-		left: 50%;
-		margin-left: -15%;
+	.sure_box button{
+		display: block;
+		width: 80%;
+		height: 0.86rem;
+		font-size: 0.28rem;
+		border-radius: 0.2rem;
+		background: #147114;
+		margin:0 auto;
+		border: none;
 	}
 	.head{
 		width: 100%;

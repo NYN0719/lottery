@@ -77,15 +77,16 @@ export default {
 <style scoped>
     *{
         padding: 0;margin: 0;
+        /* font-size: 0.27rem; */
     }
     h2{
         color: red;
         margin: 0.1rem 0 0.05rem;
-        font-size: 0.16rem;
+        font-size: 0.20rem;
     }
     p{
         margin-bottom: 0.16rem;
-        font-size: 0.14rem;
+        font-size: 0.18rem;
         color:#083a19;
     }
     tr:nth-child(odd){
@@ -98,7 +99,8 @@ export default {
         text-align: center;
         min-width: 0.06rem;
         font-size: 0.16rem;
-        color: #08533c
+        color: #08533c;
+        font-size:0.20rem;
     }
 </style>
 

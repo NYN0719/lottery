@@ -2,15 +2,14 @@
     <div style="min-height:100vh; background: #077552;">
         <div class="top">
             <span  class="x">
-                <router-link to>
-                        登录|注册
-                </router-link>
             </span>
              <h4><span>{{time}}</span>好！朋友 </h4>
-             <div class="item_img">
-                 <img src="url">
-             </div>
-             <div class="user">用户名</div>
+            <router-link to="/login">
+                    <div class="item_img">
+                         <img :src="this.url" alt="">
+                    </div>
+            </router-link>
+             <div class="user">Nyn</div>
              <ul class="mnj">
                 <li>0模拟金</li>
                 <li>0积分 
@@ -20,16 +19,19 @@
                 </li>
              </ul>
         </div>
-        <div class="bottom" style="min-height:100vh">
+        <div class="bottom" style="min-height:auto;">
           
                 <div v-for="(i,index) in arr" class="aaa" :key="index">
-                        <router-link to="/lotteryHall">
+                <router-link to="/lotteryHall">
                     <div class="item">
+                        
                         <img :src="i.type?img1:img2" alt="">
                         <p class="tlt">{{i.title}}</p>
+                        
                     </div>
                     <md-button class="ani md-icon-button md-accent">
-                    </md-button>
+                            
+                        </md-button>
                 </router-link>
                 </div>
            
@@ -42,6 +44,7 @@
         data(){
             return{
                 tiem:'',
+                url:'',
                 hour:0,
                 img1:'http://haoxg.xyz/lottery/img/happyk3.ea0489f1.png',
                 img2:'http://haoxg.xyz/lottery/img/k31.f388457f.jpg',
@@ -105,6 +108,7 @@
             }
         },
         created(){
+            this.url=localStorage.imglink
             var tim = new Date()
 			this.hour = tim.getHours()
 			if (this.hour > 6 && this.hour <=10) {
@@ -138,11 +142,27 @@
     .tlt{
         font-size: 0.20rem;
         color: #48B892;
+        
+        padding:0.2rem 0;
+    }
+    .item{
+        height: 1.2rem;
     }
     .aaa{
         float: left;
         width: 25%;
+        position: relative;
         text-align: center;
+        margin-top:0.2rem; 
+    }
+    .md-accent{
+        position: absolute;
+        left: 50%;
+        top:0;
+        margin-left: -0.28rem;
+        width:0.56rem;
+        height: 0.56rem; 
+        border-radius:50%; 
     }
     .item img{
         width: 0.56rem;
@@ -206,13 +226,14 @@
         /* padding: 0.1rem 0; */
         height: 0.6rem;
        margin: 0 auto;
-        background: red;
+        background:#ccc;
+        position: relative;
+        border-radius:50%; 
         font-size: 0;
     }
     .item_img img{
         width: 100%;
         height: 100%;
         border-radius:50%; 
-       
 }
 </style>

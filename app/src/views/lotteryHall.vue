@@ -13,8 +13,12 @@
     </header>
     <div class="content_hk">
       <ul class="change_hk">
-        <li @click="tabs = true" :class="tabs==true?'abc':''">选号</li>
-        <li @click="tabs = false" :class="tabs==true?'':'abc'">走势图</li>
+        <li @click="tabs = true" :class="tabs==true?'abc':''">
+          选号          
+        </li>
+        <li @click="tabs = false" :class="tabs==true?'':'abc'">
+           走势图          
+        </li>
       </ul>
       
       <!-- 选号 -->
@@ -146,12 +150,16 @@
         共 {{click_count}} 注
         <span>0 模拟金</span>
       </div>
-      <div>确定</div>
+      <div @click="al">
+        确定
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+
+
 export default {
   data() {
     return {
@@ -249,6 +257,9 @@ export default {
     // }, 1000);
   },
   methods: {
+    al(){
+      alert('至少选择一注选号')
+    },
     add() {
       var _this = this;
       var timer = window.setInterval(function() {
@@ -278,6 +289,7 @@ export default {
     }
   }
 };
+
 </script>
 
 <style scoped>
@@ -405,7 +417,7 @@ header > div {
   border-right: 0.01rem solid #00422c;
   background-color: #0b5f45;
   width: 10%;
-  /* height: 0.8rem; */
+  height: 0.6rem;
   font-size: 0.23rem;
 }
 .goList .goListTainer table tr:nth-child(odd) th {
